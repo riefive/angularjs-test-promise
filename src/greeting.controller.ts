@@ -5,6 +5,8 @@ namespace App
     export class GreetingController implements angular.IOnInit
     {
         static $inject = ['$scope', 'GreetingService'];
+        public products = []
+        public status = 0
 
         constructor(
             private scope: angular.IScope,
@@ -15,12 +17,37 @@ namespace App
 
         public simulateSuccess()
         {
-            this.greetSrv.ToGreet('john doe').then((result) => console.log(result)).catch((error) => console.log(error));
+            return this.greetSrv.toGreet('john doe')
+                .then((result) => {
+                    console.log(result);
+                    return result;
+                });
         }
 
         public simulateReject()
         {
-            this.greetSrv.ToGreet('fake').then((result) => console.log(result)).catch((error) => console.log(error));
+            return this.greetSrv.toGreet('fake')
+                .then((result) => {
+                    console.log(result);
+                    return result;
+                })
+                .catch((error) => {
+                    console.log(error);
+                    return error;
+                });
+        }
+
+        public simulateProduct()
+        {
+            return this.greetSrv.toGetProduct()
+                .then((result: any) => {
+                    this.status = result.status;
+                    this.products = result.data;
+                    return result;
+                })
+                .catch((error) => {
+                    return error;
+                });
         }
 
         $onInit(): void 
