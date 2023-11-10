@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.angularjs.org/1.8.2/angular.js"></script>
+    <script src="https://code.angularjs.org/1.8.2/angular-route.js"></script>
+    <title>AngularJs - Greeting Test</title>
+</head>
+<body ng-app="AppTest">
+    <h3>Greeting Demo</h3>
+    <div ng-controller="AppController"></div>
+    <div ng-controller="GreetingController as vm">
+        <h2>Test</h2>
+    </div>
+
+    <script src="dist/app.js"></script>
+    <script src="dist/greeting.service.js"></script>
+    <script src="dist/greeting.controller.js"></script>
+</body>
+</html>

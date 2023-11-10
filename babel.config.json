@@ -1,0 +1,24 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "targets": {
+                    "chrome": "58",
+                    "ie": "11"
+                },
+                // for uglifyjs...
+                // @see https://babeljs.io/docs/babel-preset-env#forcealltransforms
+                "forceAllTransforms": true
+            }
+        ],
+        "@babel/preset-typescript"
+    ],
+    // @see https://babeljs.io/docs/options#ignore
+    "ignore": [
+        "src/interfaces/**",
+        // we are excluding the unit test file... we don't need it to be send to client..
+        // But when using unit test we must allow the spec files... ugh.. 
+        // "**/*.spec.ts"
+    ]
+}
